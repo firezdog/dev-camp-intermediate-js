@@ -10,3 +10,12 @@ what happens if we attach properties to "this" as global object?
 These become global variables
 strict mode ("use strict"): value of keyword this in function is undefined
 note: strict mode can be declared globally or within a function
+
+implicit:
+inside object, value of "this" is closest parent
+
+call / apply / bind (explicit?):
+We can choose the context for this -- can only be used by functions
+call -- thisArg, params, invoked immediately
+apply -- thisArg, array of params, invoked immediately
+bind -- thisArg, params, not invoked immediately (returns function?) -- good for setTimeout
