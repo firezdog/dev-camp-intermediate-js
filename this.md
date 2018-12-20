@@ -17,5 +17,7 @@ inside object, value of "this" is closest parent
 call / apply / bind (explicit?):
 We can choose the context for this -- can only be used by functions
 call -- thisArg, params, invoked immediately
+use call to store functions in one object but allow them to access values from another (is that really good from the perspective of encapsulation?)
 apply -- thisArg, array of params, invoked immediately
-bind -- thisArg, params, not invoked immediately (returns function?) -- good for setTimeout
+bind -- thisArg, params, not invoked immediately (returns function with the appropriate this) -- good for asynchronous code (like setTimeout)
+setTimeout -- run function after some time (function to exec, ms to wait)

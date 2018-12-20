@@ -1,5 +1,8 @@
 var person = {
     firstName: "Alex",
+    add: function(a, b) {
+        console.log(`This is ${this.firstName}'s calculation: ${a + b}`)
+    },
     sayHi: function() {
         return "Hi " + this.firstName
     },
