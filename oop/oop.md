@@ -20,5 +20,12 @@ In ES5, inheritance = calling the super-class's constructor function in the sub-
 Properties of constructor functions (point back to them) and also of the objects created from those functions using "new"
 
 ### __proto__, prototypes, and constructors
+__proto__ used to change inherited properties for all instances from a particular instance; prototype used to change from the constructor function ("class")
 
 ### prototype vs. constructor
+instance.__proto__ = class.prototype
+class.prototype.constructor = class
+e.g.: a = [] (new Array()); a.__proto__ === Array.prototype
+methods are inherited up the prototype chain (prototype inheritance is transitive) -- e.g. hasOwnProperty comes to a from Array and to Array from Object
+(Object has no prototype)
+It is more efficient to place inherited methods on the prototype of the constructor function than in the function itself (???) -- that way, the function isn't redefined each time the constructor method is called
