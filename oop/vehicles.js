@@ -24,14 +24,16 @@ function Car(make, model, year) {
     this.numWheels = 4
 }
 
-Car.prototype = new Vehicle
+// if you use "new" to set the prototype, you get an actual Vehicle object...which is weird; if you just use Vehicle.prototype, then all subclasses of Vehicle will have the same prototype, which also isn't right.  Solved this using the spread operator -- which seems to work.
+
+Car.prototype = {...Vehicle.prototype}
 
 function Motorcycle(make, model, year) {
     Vehicle.apply(this, arguments)
     this.numWheels = 2
 }
 
-Motorcycle.prototype = new Vehicle
+Motorcycle.prototype = {...Vehicle.prototype}
 
 const sample = new Car("Toyota", "Civic", "2002")
 const sample2 = new Motorcycle("Harley", "Davidson", "1998")
