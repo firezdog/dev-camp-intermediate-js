@@ -25,6 +25,7 @@ function Car(make, model, year) {
 }
 
 // if you use "new" to set the prototype, you get an actual Vehicle object...which is weird; if you just use Vehicle.prototype, then all subclasses of Vehicle will have the same prototype, which also isn't right.  Solved this using the spread operator -- which seems to work.
+// UPDATE: the correct way to do it: Object.create(Parent.prototype)
 
 Car.prototype = {...Vehicle.prototype}
 
@@ -33,7 +34,7 @@ function Motorcycle(make, model, year) {
     this.numWheels = 2
 }
 
-Motorcycle.prototype = {...Vehicle.prototype}
+Motorcycle.prototype = Object.create(Vehicle.prototype)
 
 const sample = new Car("Toyota", "Civic", "2002")
 const sample2 = new Motorcycle("Harley", "Davidson", "1998")
